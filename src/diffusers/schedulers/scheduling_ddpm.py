@@ -472,7 +472,7 @@ class DDPMScheduler(SchedulerMixin, ConfigMixin):
         while len(sqrt_one_minus_alpha_prod.shape) < len(original_samples.shape):
             sqrt_one_minus_alpha_prod = sqrt_one_minus_alpha_prod.unsqueeze(-1)
 
-        noisy_samples = sqrt_alpha_prod * original_samples + sqrt_one_minus_alpha_prod * noise
+        noisy_samples = original_samples + noise
         return noisy_samples
 
     def get_velocity(
